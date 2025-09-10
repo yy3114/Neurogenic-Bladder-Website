@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神經性膀胱入門指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+        .emoji-float {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .quiz-option {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .quiz-option:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .quiz-option.correct {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        .quiz-option.wrong {
+            background: #fee;
+            border-color: #fca5a5;
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .brain-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+        .fun-fact {
+            background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .fun-fact::before {
+            content: '💡';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 flex justify-center">
+    <div class="container bg-white shadow-2xl rounded-3xl p-6 sm:p-10 border-4 border-blue-200">
+        <header class="text-center mb-10 relative">
+            <div class="emoji-float text-6xl mb-4">🧠💧</div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                神經性膀胱：超有趣解說！
+            </h1>
+            <p class="text-xl text-gray-600">讓複雜的醫學知識變得超級好玩！ 🎉</p>
+        </header>
+
+        <div class="space-y-12">
+            <!-- 什麼是神經性膀胱 -->
+            <div class="relative">
+                <div class="absolute -top-2 -left-2 text-4xl">🎈</div>
+                <h2 class="text-2xl sm:text-3xl text-blue-700 font-semibold mb-4 ml-12">什麼是神經性膀胱？</h2>
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-2xl border-2 border-blue-200 ml-8">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        想像一下，你的膀胱就像一個<span class="bg-yellow-200 px-2 py-1 rounded-full font-bold">魔法氣球 🎈</span>，而神經就是控制這個氣球開關的<span class="bg-green-200 px-2 py-1 rounded-full font-bold">魔法電線 ⚡</span>。當電線（神經）受傷了，開關（控制）就會失靈，導致氣球無法正常收縮或放鬆。這種因為神經問題而導致的膀胱功能失調，就叫做<strong class="text-purple-800 font-bold text-xl">神經性膀胱</strong>！
+                    </p>
+                </div>
+            </div>
+
+            <!-- 神經學比喻 -->
+            <div class="bg-gradient-to-br from-blue-100 via-purple-50 to-pink-100 p-8 rounded-2xl border-3 border-blue-300 relative overflow-hidden">
+                <div class="absolute top-4 right-4 text-6xl opacity-20">🏢</div>
+                <div class="brain-animation inline-block text-4xl mb-2">🧠</div>
+                <h2 class="text-2xl sm:text-3xl text-purple-700 font-semibold mb-4 inline-block ml-4">
+                    大腦、脊髓、膀胱的「超級通訊公司」
+                </h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    排尿不是一件簡單的事，它需要一個超級精密的「通訊公司」來協調，每個員工都有重要任務：
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="text-center p-4 bg-white rounded-xl shadow-md transform hover:scale-105 transition-all duration-300">
+                        <div class="text-5xl mb-3">💧</div>
+                        <h3 class="font-bold text-blue-800 text-lg mb-2">膀胱小助理</h3>
+                        <p class="text-sm text-gray-600">負責傳送「老闆，我裝滿了！」的重要訊息</p>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-xl shadow-md transform hover:scale-105 transition-all duration-300">
+                        <div class="text-5xl mb-3">📡</div>
+                        <h3 class="font-bold text-green-800 text-lg mb-2">脊髓中繼站</h3>
+                        <p class="text-sm text-gray-600">擔任「快遞小哥」，把訊息快速送到總部</p>
+                    </div>
+                    <div class="text-center p-4 bg-white rounded-xl shadow-md transform hover:scale-105 transition-all duration-300">
+                        <div class="text-5xl mb-3">👑</div>
+                        <h3 class="font-bold text-purple-800 text-lg mb-2">大腦總裁</h3>
+                        <p class="text-sm text-gray-600">做最終決定：「好的，現在可以去洗手間了！」</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-xl border-l-4 border-orange-400">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        <span class="text-2xl">⚠️</span> 只要「通訊公司」中的任何一個部門出了問題，膀胱就無法正常工作，導致神經性膀胱！
+                    </p>
+                </div>
+            </div>
+
+            <!-- 專業神經學區塊 -->
+            <div class="fun-fact p-8 rounded-2xl border-2 border-yellow-400 relative">
+                <h2 class="text-2xl sm:text-3xl text-white font-semibold mb-6">
+                    🔬 科學家模式：深入了解排尿的神經機制
+                </h2>
+                <div class="bg-white bg-opacity-90 p-6 rounded-xl text-gray-800">
+                    <p class="text-lg leading-relaxed mb-4">
+                        從神經學角度來看，排尿功能就像一個三層管理系統：
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-blue-50 rounded-xl">
+                            <div class="text-3xl">🎯</div>
+                            <div>
+                                <h4 class="font-bold text-blue-800 text-lg">脊髓排尿反射中心（SMC, S2-S4）</h4>
+                                <p class="text-gray-700">位於脊髓薦椎部位的「第一線指揮官」。當膀胱的伸展感應器察覺到「客滿」狀態時，會透過骨盆神經發送緊急通知！</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-4 bg-green-50 rounded-xl">
+                            <div class="text-3xl">🎼</div>
+                            <div>
+                                <h4 class="font-bold text-green-800 text-lg">腦橋排尿中樞（PMC）</h4>
+                                <p class="text-gray-700">腦幹中的「音樂指揮家」！負責協調膀胱肌肉的收縮與括約肌的放鬆，確保排尿像美妙的交響樂一樣順暢。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-4 bg-purple-50 rounded-xl">
+                            <div class="text-3xl">👨‍💼</div>
+                            <div>
+                                <h4 class="font-bold text-purple-800 text-lg">大腦皮質</h4>
+                                <p class="text-gray-700">最高階的「CEO」！在重要會議中發出「暫時忍耐」的指令，到了適當時機才解除這個抑制訊號。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 兩種常見類型 -->
+            <div>
+                <h2 class="text-2xl sm:text-3xl text-blue-700 font-semibold mb-6 text-center">
+                    🎭 神經性膀胱的兩種「個性」
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-red-100 to-orange-100 p-6 rounded-2xl shadow-lg border-3 border-red-200 transform hover:scale-105 transition-all duration-300">
+                        <div class="text-center mb-4">
+                            <div class="text-6xl mb-2">😤</div>
+                            <h3 class="text-xl sm:text-2xl text-red-800 font-bold">「急性子」膀胱</h3>
+                            <p class="text-red-600 font-medium">過度活躍型</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl">
+                            <p class="text-gray-700 mb-3 font-medium">
+                                就像一個沒耐心的小孩，膀胱會過度興奮，還沒裝滿就想排尿！
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl">⚡</span>
+                                    <span class="text-gray-700">總是想上廁所</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl">💨</span>
+                                    <span class="text-gray-700">一有尿意就忍不住</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl">🔄</span>
+                                    <span class="text-gray-700">尿量少但次數頻繁</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-100 to-indigo-100 p-6 rounded-2xl shadow-lg border-3 border-blue-200 transform hover:scale-105 transition-all duration-300">
+                        <div class="text-center mb-4">
+                            <div class="text-6xl mb-2">😴</div>
+                            <h3 class="text-xl sm:text-2xl text-blue-800 font-bold">「懶洋洋」膀胱</h3>
+                            <p class="text-blue-600 font-medium">低活躍型</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl">
+                            <p class="text-gray-700 mb-3 font-medium">
+                                膀胱變得懶散無力，無法有效收縮，導致尿液排不乾淨。
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl">🐌</span>
+                                    <span class="text-gray-700">排尿困難、尿流細弱</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl">🪣</span>
+                                    <span class="text-gray-700">排尿後感覺沒排乾淨</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl">💧</span>
+                                    <span class="text-gray-700">膀胱太滿導致漏尿</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 互動式練習題 -->
+            <div class="bg-gradient-to-r from-yellow-100 via-green-100 to-blue-100 p-8 rounded-2xl border-3 border-yellow-300">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-3">🎯</div>
+                    <h2 class="text-2xl sm:text-3xl text-green-700 font-semibold">超好玩小測驗：你是神經性膀胱專家嗎？</h2>
+                    <p class="text-lg text-gray-600 mt-2">點擊你認為正確的答案，看看你答對了幾題！</p>
+                </div>
+                
+                <div class="space-y-8" id="quiz-container">
+                    <!-- 測驗題目會由JavaScript動態生成 -->
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <div class="bg-white p-4 rounded-xl shadow-md inline-block">
+                        <div class="text-2xl font-bold text-purple-700" id="score-display">分數：0/5 🎯</div>
+                        <div class="w-48 bg-gray-200 rounded-full h-4 mt-3 mx-auto">
+                            <div class="progress-bar bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="text-center text-sm text-gray-500 mt-10 p-6 bg-gray-50 rounded-2xl">
+                <div class="text-3xl mb-2">🏥</div>
+                <p class="font-medium">本資訊僅供參考，如有任何健康疑慮，請尋求專業醫療協助。</p>
+                <p class="mt-2 text-gray-400">學習醫學知識，也要記得照顧自己的健康哦！ 💪</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // 測驗題目數據
+        const quizData = [
+            {
+                question: "王先生中風後，常常感覺尿很急，還來不及到廁所就漏尿了。",
+                options: ["急性子膀胱 😤", "懶洋洋膀胱 😴"],
+                correct: 0,
+                explanation: "突然的尿急和無法控制，這是典型的急性子膀胱症狀！"
+            },
+            {
+                question: "李女士因為脊椎受傷，現在排尿很費力，每次都感覺尿不完。",
+                options: ["急性子膀胱 😤", "懶洋洋膀胱 😴"],
+                correct: 1,
+                explanation: "排尿困難和感覺尿不乾淨，這是懶洋洋膀胱的特徵！"
+            },
+            {
+                question: "張先生總是晚上要起來上好幾次廁所，但每次尿量都很少。",
+                options: ["急性子膀胱 😤", "懶洋洋膀胱 😴"],
+                correct: 0,
+                explanation: "頻繁但少量的排尿，典型的急性子膀胱行為模式！"
+            },
+            {
+                question: "陳小姐的膀胱因為神經受損而無法收縮，導致尿液總是堆積在膀胱裡。",
+                options: ["急性子膀胱 😤", "懶洋洋膀胱 😴"],
+                correct: 1,
+                explanation: "無法有效收縮和尿液堆積，這就是懶洋洋膀胱的典型表現！"
+            },
+            {
+                question: "劉爺爺常常覺得有尿意，但尿出來的卻是一點一點的。",
+                options: ["急性子膀胱 😤", "懶洋洋膀胱 😴"],
+                correct: 1,
+                explanation: "有尿意但排出困難，這是懶洋洋膀胱無力收縮的表現！"
+            }
+        ];
+
+        let currentScore = 0;
+        let answeredQuestions = new Set();
+
+        // 初始化測驗
+        function initQuiz() {
+            const container = document.getElementById('quiz-container');
+            
+            quizData.forEach((quiz, index) => {
+                const quizElement = document.createElement('div');
+                quizElement.className = 'bg-white p-6 rounded-xl shadow-md';
+                quizElement.innerHTML = `
+                    <div class="mb-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm mr-2">題目 ${index + 1}</span>
+                            ${quiz.question}
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            ${quiz.options.map((option, optionIndex) => `
+                                <div class="quiz-option bg-gray-50 border-2 border-gray-200 p-4 rounded-xl text-center font-medium"
+                                     onclick="selectAnswer(${index}, ${optionIndex})" 
+                                     id="option-${index}-${optionIndex}">
+                                    ${option}
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="mt-4 p-3 bg-blue-50 rounded-lg hidden" id="explanation-${index}">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">💡</span>
+                                <span class="text-blue-800 font-medium" id="explanation-text-${index}"></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(quizElement);
+            });
+        }
+
+        // 選擇答案
+        function selectAnswer(questionIndex, selectedOption) {
+            if (answeredQuestions.has(questionIndex)) return;
+            
+            const quiz = quizData[questionIndex];
+            const isCorrect = selectedOption === quiz.correct;
+            
+            // 標記所有選項
+            quiz.options.forEach((_, optionIndex) => {
+                const optionElement = document.getElementById(`option-${questionIndex}-${optionIndex}`);
+                optionElement.style.cursor = 'default';
+                
+                if (optionIndex === quiz.correct) {
+                    optionElement.classList.add('correct');
+                } else if (optionIndex === selectedOption && !isCorrect) {
+                    optionElement.classList.add('wrong');
+                }
+            });
+            
+            // 顯示解釋
+            const explanationElement = document.getElementById(`explanation-${questionIndex}`);
+            const explanationText = document.getElementById(`explanation-text-${questionIndex}`);
+            explanationElement.classList.remove('hidden');
+            explanationText.textContent = quiz.explanation;
+            
+            // 更新分數
+            if (isCorrect) {
+                currentScore++;
+            }
+            answeredQuestions.add(questionIndex);
+            
+            updateScoreDisplay();
+        }
+
+        // 更新分數顯示
+        function updateScoreDisplay() {
+            const scoreElement = document.getElementById('score-display');
+            const progressBar = document.getElementById('progress-bar');
+            
+            scoreElement.textContent = `分數：${currentScore}/${quizData.length} 🎯`;
+            
+            const progressPercentage = (answeredQuestions.size / quizData.length) * 100;
+            progressBar.style.width = progressPercentage + '%';
+            
+            // 完成所有題目時的特效
+            if (answeredQuestions.size === quizData.length) {
+                setTimeout(() => {
+                    let message = '';
+                    if (currentScore === quizData.length) {
+                        message = '🎉 完美！你是神經性膀胱專家！';
+                        scoreElement.innerHTML = message + '<br>' + scoreElement.textContent;
+                    } else if (currentScore >= quizData.length * 0.8) {
+                        message = '👏 太棒了！你掌握得很好！';
+                        scoreElement.innerHTML = message + '<br>' + scoreElement.textContent;
+                    } else {
+                        message = '💪 不錯的開始，繼續學習！';
+                        scoreElement.innerHTML = message + '<br>' + scoreElement.textContent;
+                    }
+                }, 500);
+            }
+        }
+
+        // 頁面載入時初始化測驗
+        document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>
